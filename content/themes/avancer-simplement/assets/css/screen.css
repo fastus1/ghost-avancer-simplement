@@ -3341,12 +3341,78 @@ html.dark-mode .toggle-icon--dark {
 }
 
 /* Show hamburger on mobile */
-@media (max-width: 991px) {
+@media (max-width: 767px) {
     .circle-nav {
         display: none;
     }
 
     .circle-header__burger {
         display: flex;
+    }
+}
+
+
+/* ============================================
+   17. Circle Layout Grid
+   ============================================ */
+
+/* Main layout container */
+.site-layout {
+    display: grid;
+    grid-template-columns: 281px 1fr;
+    grid-template-rows: 64px 1fr;
+    grid-template-areas:
+        "header header"
+        "sidebar main";
+    min-height: 100vh;
+}
+
+/* Header positioning */
+.site-layout .circle-header {
+    grid-area: header;
+}
+
+/* Sidebar positioning (align-self: start critical for sticky to work) */
+.site-layout .circle-sidebar {
+    grid-area: sidebar;
+    position: sticky;
+    top: 64px;
+    height: calc(100vh - 64px);
+    overflow-y: auto;
+    align-self: start;
+}
+
+/* Main content area */
+.site-layout .site-main {
+    grid-area: main;
+    min-height: calc(100vh - 64px);
+    padding: 0 max(4vmin, 20px);
+}
+
+/* Responsive breakpoint (mobile < 768px) */
+@media (max-width: 767px) {
+    .site-layout {
+        grid-template-columns: 1fr;
+        grid-template-rows: 64px 1fr;
+        grid-template-areas:
+            "header"
+            "main";
+    }
+
+    .site-layout .circle-sidebar {
+        display: none;
+    }
+
+    .circle-header__burger {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 24px;
+        height: 18px;
+        cursor: pointer;
+    }
+
+    .circle-header__nav {
+        display: none;
     }
 }
