@@ -20,16 +20,16 @@ Ce projet migre le blog WordPress existant vers Ghost auto-heberge, avec un bran
 ### Phase 1: Infrastructure Foundation
 **Goal**: Ghost 6.x tourne localement avec MySQL 8 et persistence des donnees validee
 **Depends on**: Nothing (first phase)
-**Requirements**: INFRA-01, INFRA-02, INFRA-03, INFRA-04, INFRA-05
+**Requirements**: INFRA-01, INFRA-02, INFRA-03, INFRA-05
+**Plans:** 1 plan
 **Success Criteria** (what must be TRUE):
   1. Ghost admin accessible a localhost:2368/ghost avec compte cree
   2. Un article de test persiste apres recreation du container Ghost
   3. Backup de la base MySQL fonctionne (mysqldump reussit)
   4. Stack docker-compose.yml reproductible (peut etre detruit et recree)
-**Plans**: TBD (1-3 plans)
 
 Plans:
-- [ ] 01-01: TBD
+- [ ] 01-01-PLAN.md — Docker Compose stack with Ghost 6 + MySQL 8 + persistence validation
 
 ### Phase 2: Theme & Branding
 **Goal**: Theme Casper personnalise avec branding Avancer Simplement et toggle dark/light
@@ -81,7 +81,7 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. Infrastructure Foundation | 0/? | Not started | - |
+| 1. Infrastructure Foundation | 0/1 | Planned | - |
 | 2. Theme & Branding | 0/? | Not started | - |
 | 3. Content Migration | 0/? | Not started | - |
 | 4. Production Deployment | 0/? | Not started | - |
