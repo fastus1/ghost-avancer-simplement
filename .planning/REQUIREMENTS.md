@@ -7,11 +7,11 @@
 
 ### Infrastructure
 
-- [ ] **INFRA-01**: Ghost 6.x deploye via Portainer Stack (docker-compose.yml)
-- [ ] **INFRA-02**: MySQL 8 configure comme base de donnees
-- [ ] **INFRA-03**: Volumes Docker configures correctement (persistence donnees)
+- [x] **INFRA-01**: Ghost 6.x deploye via Portainer Stack (docker-compose.yml)
+- [x] **INFRA-02**: MySQL 8 configure comme base de donnees
+- [x] **INFRA-03**: Volumes Docker configures correctement (persistence donnees)
 - [ ] **INFRA-04**: Caddy configure comme reverse proxy avec SSL auto
-- [ ] **INFRA-05**: Stack testee localement avant production
+- [x] **INFRA-05**: Stack testee localement avant production
 
 ### Branding
 
@@ -66,11 +66,11 @@
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| INFRA-01 | 1 | Pending |
-| INFRA-02 | 1 | Pending |
-| INFRA-03 | 1 | Pending |
+| INFRA-01 | 1 | Complete |
+| INFRA-02 | 1 | Complete |
+| INFRA-03 | 1 | Complete |
 | INFRA-04 | 4 | Pending |
-| INFRA-05 | 1 | Pending |
+| INFRA-05 | 1 | Complete |
 | BRAND-01 | 2 | Pending |
 | BRAND-02 | 2 | Pending |
 | BRAND-03 | 2 | Pending |

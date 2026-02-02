@@ -10,7 +10,7 @@ Ce projet migre le blog WordPress existant vers Ghost auto-heberge, avec un bran
 - Integer phases (1, 2, 3, 4): Planned milestone work
 - Decimal phases (2.1, 2.2): Urgent insertions (marked with INSERTED)
 
-- [ ] **Phase 1: Infrastructure Foundation** - Ghost + MySQL + volumes fonctionnels localement
+- [x] **Phase 1: Infrastructure Foundation** - Ghost + MySQL + volumes fonctionnels localement
 - [ ] **Phase 2: Theme & Branding** - Casper fork avec Inter, couleurs brand, dark/light toggle
 - [ ] **Phase 3: Content Migration** - Articles WordPress migres et nettoyes
 - [ ] **Phase 4: Production Deployment** - Caddy + SSL + GitOps via Portainer
@@ -29,7 +29,7 @@ Ce projet migre le blog WordPress existant vers Ghost auto-heberge, avec un bran
   4. Stack docker-compose.yml reproductible (peut etre detruit et recree)
 
 Plans:
-- [ ] 01-01-PLAN.md — Docker Compose stack with Ghost 6 + MySQL 8 + persistence validation
+- [x] 01-01-PLAN.md — Docker Compose stack with Ghost 6 + MySQL 8 + persistence validation
 
 ### Phase 2: Theme & Branding
 **Goal**: Theme Casper personnalise avec branding Avancer Simplement et toggle dark/light
@@ -81,7 +81,7 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. Infrastructure Foundation | 0/1 | Planned | - |
+| 1. Infrastructure Foundation | 1/1 | Complete | 2026-02-02 |
 | 2. Theme & Branding | 0/? | Not started | - |
 | 3. Content Migration | 0/? | Not started | - |
 | 4. Production Deployment | 0/? | Not started | - |
