@@ -1,0 +1,22 @@
+<aside class="circle-sidebar">
+    <section class="sidebar-section">
+        <h2 class="sidebar-section__title">Articles</h2>
+        {{#get 'posts' limit='10' order='published_at desc'}}
+            <nav class="sidebar-posts" aria-label="Articles recents">
+                <ul class="sidebar-posts__list">
+                    {{#foreach posts}}
+                        <li class="sidebar-posts__item">
+                            <a href="{{url}}" class="sidebar-posts__link">{{title}}</a>
+                        </li>
+                    {{/foreach}}
+                </ul>
+            </nav>
+        {{else}}
+            <p class="sidebar-empty">Aucun article</p>
+        {{/get}}
+    </section>
+
+    <div class="sidebar-toggle-wrapper">
+        {{> "theme-toggle"}}
+    </div>
+</aside>
