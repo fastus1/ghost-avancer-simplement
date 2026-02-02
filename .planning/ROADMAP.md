@@ -35,16 +35,19 @@ Plans:
 **Goal**: Theme Casper personnalise avec branding Avancer Simplement et toggle dark/light
 **Depends on**: Phase 1
 **Requirements**: BRAND-01, BRAND-02, BRAND-03, BRAND-04, THEME-01, THEME-02, THEME-03, THEME-04, THEME-05
+**Plans:** 4 plans
 **Success Criteria** (what must be TRUE):
   1. Police Inter visible sur tous les textes du blog
   2. Couleurs brand appliquees (#074491 en light mode, #3085F5 en dark mode)
   3. Toggle dark/light mode dans le header fonctionne et persiste (localStorage)
   4. Logo et favicon visibles dans le navigateur
   5. Theme active et fonctionnel sans erreurs console
-**Plans**: TBD (1-3 plans)
 
 Plans:
-- [ ] 02-01: TBD
+- [ ] 02-01-PLAN.md — Fork Casper theme and self-host Inter font
+- [ ] 02-02-PLAN.md — CSS custom properties for light/dark mode theming
+- [ ] 02-03-PLAN.md — Toggle button with localStorage persistence
+- [ ] 02-04-PLAN.md — Logo/favicon assets and final theme verification
 
 ### Phase 3: Content Migration
 **Goal**: Articles WordPress (20-100) importes, nettoyes et fonctionnels dans Ghost
@@ -82,7 +85,7 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
 | 1. Infrastructure Foundation | 1/1 | Complete | 2026-02-02 |
-| 2. Theme & Branding | 0/? | Not started | - |
+| 2. Theme & Branding | 0/4 | Planning complete | - |
 | 3. Content Migration | 0/? | Not started | - |
 | 4. Production Deployment | 0/? | Not started | - |
 
