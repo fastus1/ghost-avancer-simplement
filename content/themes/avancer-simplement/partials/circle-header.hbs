@@ -10,35 +10,46 @@
 
         {{!-- Navigation - Center --}}
         <nav class="circle-header__nav" aria-label="Navigation principale">
-            <ul class="circle-nav">
-                <li>
+            <ul class="circle-nav" id="mainNav">
+                <li data-nav-item>
                     <a href="https://communaute.avancersimplement.com/feed"
                        class="circle-nav__link">Accueil</a>
                 </li>
-                <li>
+                <li data-nav-item>
                     <a href="https://communaute.avancersimplement.com/nos-applications"
                        class="circle-nav__link">Nos Applications</a>
                 </li>
-                <li>
+                <li data-nav-item>
                     <a href="https://communaute.avancersimplement.com/courses"
                        class="circle-nav__link">Cours</a>
                 </li>
-                <li class="circle-nav__item--active">
+                <li data-nav-item class="circle-nav__item--active">
                     <a href="{{@site.url}}"
                        class="circle-nav__link"
                        aria-current="page">Blog</a>
                 </li>
-                <li>
+                <li data-nav-item>
                     <a href="https://communaute.avancersimplement.com/events"
                        class="circle-nav__link">Evenements</a>
                 </li>
-                <li>
+                <li data-nav-item>
                     <a href="https://communaute.avancersimplement.com/members"
                        class="circle-nav__link">Membres</a>
                 </li>
-                <li>
+                <li data-nav-item>
                     <a href="https://communaute.avancersimplement.com/leaderboard"
                        class="circle-nav__link">Leaderboard</a>
+                </li>
+                {{!-- More dropdown for overflow items --}}
+                <li class="circle-nav__more" id="navMore">
+                    <button class="circle-nav__link circle-nav__more-btn" aria-expanded="false" aria-haspopup="true">
+                        Plus
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="6 9 12 15 18 9"></polyline>
+                        </svg>
+                    </button>
+                    <ul class="circle-nav__dropdown" id="navDropdown">
+                    </ul>
                 </li>
             </ul>
         </nav>
@@ -51,7 +62,7 @@
                     <circle cx="11" cy="11" r="8"></circle>
                     <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
                 </svg>
-                <span class="circle-search__text">Rechercher sur le blog</span>
+                <span class="circle-search__text">Rechercher</span>
             </button>
 
             <label class="circle-header__burger" for="mobile-menu-toggle" aria-label="Menu">

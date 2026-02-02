@@ -3209,27 +3209,27 @@ html.dark-mode .toggle-icon--dark {
 
 /* Inner wrapper - 3 column grid for centered nav */
 .circle-header__inner {
-    display: grid;
-    grid-template-columns: minmax(360px, 1fr) auto minmax(0, 1fr);
+    display: flex;
     align-items: center;
+    justify-content: space-between;
     width: 100%;
     height: 100%;
     max-width: 100%;
     margin: 0 auto;
+    gap: 16px;
 }
 
 /* Logo - left aligned */
 .circle-header__logo {
     display: flex;
     align-items: center;
-    justify-self: start;
     flex-shrink: 0;
-    overflow: hidden;
 }
 
 .circle-header__logo img {
-    height: 36px;
-    width: 360px;
+    height: 32px;
+    width: auto;
+    max-width: 200px;
     object-fit: contain;
     object-position: left;
 }
@@ -3291,6 +3291,72 @@ html.dark-mode .toggle-icon--dark {
     background: rgb(66, 70, 77);
     border: 1px solid transparent;
     color: var(--color-header-active-text);
+}
+
+/* More dropdown */
+.circle-nav__more {
+    position: relative;
+    display: none;
+}
+
+.circle-nav__more.is-visible {
+    display: flex;
+}
+
+.circle-nav__more-btn {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    background: none;
+    cursor: pointer;
+}
+
+.circle-nav__more-btn svg {
+    transition: transform 0.2s ease;
+}
+
+.circle-nav__more-btn[aria-expanded="true"] svg {
+    transform: rotate(180deg);
+}
+
+.circle-nav__dropdown {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    margin-top: 8px;
+    padding: 8px;
+    background: var(--color-header-bg);
+    border: 1px solid var(--color-border);
+    border-radius: 12px;
+    list-style: none;
+    min-width: 180px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s ease;
+}
+
+.circle-nav__more-btn[aria-expanded="true"] + .circle-nav__dropdown {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.circle-nav__dropdown li {
+    margin: 0;
+}
+
+.circle-nav__dropdown .circle-nav__link {
+    display: block;
+    width: 100%;
+    padding: 10px 14px;
+    border-radius: 8px;
+}
+
+/* Hidden nav items (moved to dropdown) */
+[data-nav-item].is-hidden {
+    display: none !important;
 }
 
 /* Search bar */
