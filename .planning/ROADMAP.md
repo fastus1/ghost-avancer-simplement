@@ -11,7 +11,7 @@ Ce projet migre le blog WordPress existant vers Ghost auto-heberge, avec un bran
 - Decimal phases (2.1, 2.2): Urgent insertions (marked with INSERTED)
 
 - [x] **Phase 1: Infrastructure Foundation** - Ghost + MySQL + volumes fonctionnels localement
-- [ ] **Phase 2: Theme & Branding** - Casper fork avec Inter, couleurs brand, dark/light toggle
+- [x] **Phase 2: Theme & Branding** - Casper fork avec Inter, couleurs brand, dark/light toggle
 - [ ] **Phase 3: Content Migration** - Articles WordPress migres et nettoyes
 - [ ] **Phase 4: Production Deployment** - Caddy + SSL + GitOps via Portainer
 
@@ -44,10 +44,10 @@ Plans:
   5. Theme active et fonctionnel sans erreurs console
 
 Plans:
-- [ ] 02-01-PLAN.md — Fork Casper theme and self-host Inter font
-- [ ] 02-02-PLAN.md — CSS custom properties for light/dark mode theming
-- [ ] 02-03-PLAN.md — Toggle button with localStorage persistence
-- [ ] 02-04-PLAN.md — Logo/favicon assets and final theme verification
+- [x] 02-01-PLAN.md — Fork Casper theme and self-host Inter font
+- [x] 02-02-PLAN.md — CSS custom properties for light/dark mode theming
+- [x] 02-03-PLAN.md — Toggle button with localStorage persistence
+- [x] 02-04-PLAN.md — Logo/favicon assets and final theme verification
 
 ### Phase 3: Content Migration
 **Goal**: Articles WordPress (20-100) importes, nettoyes et fonctionnels dans Ghost
@@ -85,7 +85,7 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
 | 1. Infrastructure Foundation | 1/1 | Complete | 2026-02-02 |
-| 2. Theme & Branding | 0/4 | Planning complete | - |
+| 2. Theme & Branding | 4/4 | Complete | 2026-02-02 |
 | 3. Content Migration | 0/? | Not started | - |
 | 4. Production Deployment | 0/? | Not started | - |
 

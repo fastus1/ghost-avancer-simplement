@@ -15,18 +15,18 @@
 
 ### Branding
 
-- [ ] **BRAND-01**: Police Inter integree (Google Fonts ou self-hosted)
-- [ ] **BRAND-02**: Couleurs brand appliquees (light: #074491, dark: #3085F5)
-- [ ] **BRAND-03**: Toggle dark/light mode manuel fonctionnel
-- [ ] **BRAND-04**: Logo et favicon configures
+- [x] **BRAND-01**: Police Inter integree (Google Fonts ou self-hosted)
+- [x] **BRAND-02**: Couleurs brand appliquees (light: #074491, dark: #3085F5)
+- [x] **BRAND-03**: Toggle dark/light mode manuel fonctionnel
+- [x] **BRAND-04**: Logo et favicon configures
 
 ### Theme
 
-- [ ] **THEME-01**: Fork de Casper cree et renomme
-- [ ] **THEME-02**: Variables CSS pour couleurs/polices
-- [ ] **THEME-03**: Dark mode CSS complet
-- [ ] **THEME-04**: Light mode CSS complet
-- [ ] **THEME-05**: Toggle button integre dans le header
+- [x] **THEME-01**: Fork de Casper cree et renomme
+- [x] **THEME-02**: Variables CSS pour couleurs/polices
+- [x] **THEME-03**: Dark mode CSS complet
+- [x] **THEME-04**: Light mode CSS complet
+- [x] **THEME-05**: Toggle button integre dans le header
 
 ### Content
 
@@ -71,15 +71,15 @@
 | INFRA-03 | 1 | Complete |
 | INFRA-04 | 4 | Pending |
 | INFRA-05 | 1 | Complete |
-| BRAND-01 | 2 | Pending |
-| BRAND-02 | 2 | Pending |
-| BRAND-03 | 2 | Pending |
-| BRAND-04 | 2 | Pending |
-| THEME-01 | 2 | Pending |
-| THEME-02 | 2 | Pending |
-| THEME-03 | 2 | Pending |
-| THEME-04 | 2 | Pending |
-| THEME-05 | 2 | Pending |
+| BRAND-01 | 2 | Complete |
+| BRAND-02 | 2 | Complete |
+| BRAND-03 | 2 | Complete |
+| BRAND-04 | 2 | Complete |
+| THEME-01 | 2 | Complete |
+| THEME-02 | 2 | Complete |
+| THEME-03 | 2 | Complete |
+| THEME-04 | 2 | Complete |
+| THEME-05 | 2 | Complete |
 | CONT-01 | 3 | Pending |
 | CONT-02 | 3 | Pending |
 | CONT-03 | 3 | Pending |
