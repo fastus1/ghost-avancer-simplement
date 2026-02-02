@@ -5,33 +5,34 @@
 See: .planning/PROJECT.md (updated 2026-02-01)
 
 **Core value:** Le blog doit refleter visuellement l'identite de la plateforme Circle.so
-**Current focus:** Phase 2 - Theme & Branding
+**Current focus:** Phase 3 - Advanced Layout
 
 ## Current Position
 
-Phase: 2 of 4 (Theme & Branding)
-Plan: 4 of 4 in current phase
-Status: Phase 2 COMPLETE - All plans (02-01, 02-02, 02-03, 02-04) finished
-Last activity: 2026-02-02 - Completed 02-04-PLAN.md (Logo, favicon & theme package)
+Phase: 3 of 4 (Advanced Layout)
+Plan: 1 of 3 in current phase
+Status: In progress
+Last activity: 2026-02-02 - Completed 03-01-PLAN.md (Circle Header)
 
-Progress: [████████████████░░░░] 80% (Phase 2: 4/4 plans complete)
+Progress: [█████████████████░░░] 85% (Phase 3: 1/3 plans complete)
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 4
-- Average duration: 5.25 min
-- Total execution time: 0.35 hours
+- Total plans completed: 5
+- Average duration: 4.6 min
+- Total execution time: 0.38 hours
 
 **By Phase:**
 
 | Phase | Plans | Total | Avg/Plan |
 |-------|-------|-------|----------|
 | 02-theme-branding | 4 | 21 min | 5.25 min |
+| 03-advanced-layout | 1 | 2 min | 2 min |
 
 **Recent Trend:**
-- Last 5 plans: 02-01 (3 min), 02-03 (2 min), 02-02 (8 min), 02-04 (8 min)
-- Trend: Stable around 5 min average
+- Last 5 plans: 02-02 (8 min), 02-03 (2 min), 02-04 (8 min), 03-01 (2 min)
+- Trend: 03-01 fast execution (header partial + CSS only)
 
 *Updated after each plan completion*
 
@@ -52,6 +53,8 @@ Recent decisions affecting current work:
 - [02-02]: Brand colors defined in global.css, referenced via --font-sans
 - [02-04]: Placeholder logo/favicon created; real assets via Ghost Admin
 - [02-04]: User approved theme with future refinement: header→sidebar layout
+- [03-01]: Blog link internal, all others external with target=_blank
+- [03-01]: Hamburger trigger hidden, ready for Plan 02
 
 ### Pending Todos
 
@@ -59,14 +62,14 @@ Recent decisions affecting current work:
 
 ### Blockers/Concerns
 
-- None - Phase 2 complete and verified in Ghost
+- None - 03-01 complete, ready for 03-02 (Mobile Menu)
 
 ## Session Continuity
 
-Last session: 2026-02-02T02:02:00Z
-Stopped at: Phase 2 COMPLETE - Completed 02-04-PLAN.md
+Last session: 2026-02-02T12:52:32Z
+Stopped at: Completed 03-01-PLAN.md
 Resume file: None
-Next phase: Phase 3 - Content Migration
+Next plan: 03-02-PLAN.md (Mobile Menu)
 
 ---
 *State initialized: 2026-02-02*
