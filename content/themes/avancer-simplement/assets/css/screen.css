@@ -23,6 +23,9 @@ production stylesheet in assets/built/screen.css
 
 */
 
+/* Avancer Simplement custom fonts */
+@import "fonts.css";
+
 /* 1. Global - Set up the things
 /* ---------------------------------------------------------- */
 
@@ -31,17 +34,17 @@ production stylesheet in assets/built/screen.css
 
 :root {
 
-    /* Colours */
-    --color-green: #a4d037;
-    --color-yellow: #fecd35;
-    --color-red: #f05230;
+    /* Colours - Casper defaults with brand overrides */
+    --color-green: var(--color-green, #a4d037);
+    --color-yellow: var(--color-yellow, #fecd35);
+    --color-red: var(--color-red, #f05230);
     --color-darkgrey: #15171A;
     --color-midgrey: #738a94;
     --color-lightgrey: #f1f1f1;
-    --color-secondary-text: #979797;
-    --color-border: #e1e1e1;
+    --color-secondary-text: var(--color-text-secondary, #979797);
+    --color-border: var(--color-border, #e1e1e1);
     --color-wash: #e5eff5;
-    --color-darkmode: #151719;
+    --color-darkmode: var(--color-bg, #151719);
 
     /*
     An accent color is also set by Ghost itself in
@@ -49,13 +52,14 @@ production stylesheet in assets/built/screen.css
 
     --ghost-accent-color: {value};
 
-    You can use this variable throughout your styles
+    You can use this variable throughout your styles.
+    For brand consistency, we also use --color-brand.
      */
 
-    /* Fonts */
-    --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
-    --font-serif: Georgia, Times, serif;
-    --font-mono: Menlo, Courier, monospace;
+    /* Fonts - Inter as primary, with fallbacks */
+    --font-sans: var(--font-primary, Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif);
+    --font-serif: var(--font-serif, Georgia, Times, serif);
+    --font-mono: var(--font-mono, Menlo, Courier, monospace);
 
 }
 
@@ -274,7 +278,8 @@ production stylesheet in assets/built/screen.css
     height: 88px;
     font-size: 1.6rem;
     line-height: 1.3em;
-    background-color: #fff;
+    background-color: var(--color-header-bg, #fff);
+    color: var(--color-header-text, inherit);
     z-index: 150;
 }
 
@@ -507,7 +512,7 @@ production stylesheet in assets/built/screen.css
     opacity: 0;
     visibility: hidden;
     text-align: left;
-    background-color: #fff;
+    background-color: var(--color-bg, #fff);
     border-radius: 5px;
     box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.04), 0 7px 20px -5px rgba(0, 0, 0, 0.15);
     transform: translate3d(0, 6px, 0);
@@ -537,7 +542,7 @@ production stylesheet in assets/built/screen.css
 .gh-head-menu .gh-dropdown li a {
     display: block;
     padding: 6px 20px;
-    color: #15171a;
+    color: var(--color-text, #15171a);
 }
 
 .is-dropdown-mega .gh-dropdown li a {
@@ -829,7 +834,7 @@ production stylesheet in assets/built/screen.css
         gap: 12px;
         align-items: center;
         padding: max(4vmin, 20px) 0 max(4vmin, 28px);
-        background-color: #fff;
+        background-color: var(--color-bg, #fff);
     }
 
     .gh-head-open #gh-head :is(.gh-head-button, .gh-head-link) {
@@ -1826,7 +1831,7 @@ iframe.instagram-media + script + :not([id]) {
     padding: 5px 5px 5px 15px;
     font-size: 1.7rem;
     color: var(--color-secondary-text);
-    background: #fff;
+    background: var(--color-bg, #fff);
     border: 1px solid var(--color-border);
     border-radius: 8px;
     transition: border-color 0.2s;
@@ -3052,3 +3057,53 @@ file to add some of your own styles. Well, you've come to
 the right place. Onward!
 
  */
+
+
+/* ============================================
+   13. Theme Toggle Button
+   ============================================ */
+
+.theme-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+    border: none;
+    padding: 8px;
+    cursor: pointer;
+    border-radius: 4px;
+    color: inherit;
+    transition: background-color 0.2s ease;
+}
+
+.theme-toggle:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+html.dark-mode .theme-toggle:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.theme-toggle:focus-visible {
+    outline: 2px solid var(--ghost-accent-color);
+    outline-offset: 2px;
+}
+
+.toggle-icon {
+    display: none;
+    line-height: 1;
+}
+
+/* Default: show moon (we're in light mode, click to go dark) */
+.toggle-icon--dark {
+    display: block;
+}
+
+/* In dark mode: show sun (click to go light) */
+html.dark-mode .toggle-icon--light {
+    display: block;
+}
+
+html.dark-mode .toggle-icon--dark {
+    display: none;
+}
