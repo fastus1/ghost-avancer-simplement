@@ -1,33 +1,27 @@
 <header class="circle-header">
     <div class="circle-header__inner">
-        {{!-- Logo Section --}}
+        {{!-- Logo Section - Left --}}
         <a href="{{@site.url}}" class="circle-header__logo">
             <img src="https://res.cloudinary.com/dxhn08di4/image/upload/v1770034227/logo-plateforme_ibpiqf.png"
                  alt="{{@site.title}}"
-                 width="360"
-                 height="36">
+                 width="200"
+                 height="32">
         </a>
 
-        {{!-- Navigation --}}
-        <nav aria-label="Navigation principale">
+        {{!-- Navigation - Center --}}
+        <nav class="circle-header__nav" aria-label="Navigation principale">
             <ul class="circle-nav">
                 <li>
                     <a href="https://communaute.avancersimplement.com/feed"
-                       class="circle-nav__link"
-                       target="_blank"
-                       rel="noopener noreferrer">Accueil</a>
+                       class="circle-nav__link">Accueil</a>
                 </li>
                 <li>
                     <a href="https://communaute.avancersimplement.com/nos-applications"
-                       class="circle-nav__link"
-                       target="_blank"
-                       rel="noopener noreferrer">Nos Applications</a>
+                       class="circle-nav__link">Nos Applications</a>
                 </li>
                 <li>
                     <a href="https://communaute.avancersimplement.com/courses"
-                       class="circle-nav__link"
-                       target="_blank"
-                       rel="noopener noreferrer">Cours</a>
+                       class="circle-nav__link">Cours</a>
                 </li>
                 <li class="circle-nav__item--active">
                     <a href="{{@site.url}}"
@@ -36,30 +30,26 @@
                 </li>
                 <li>
                     <a href="https://communaute.avancersimplement.com/events"
-                       class="circle-nav__link"
-                       target="_blank"
-                       rel="noopener noreferrer">Evenements</a>
+                       class="circle-nav__link">Evenements</a>
                 </li>
                 <li>
                     <a href="https://communaute.avancersimplement.com/members"
-                       class="circle-nav__link"
-                       target="_blank"
-                       rel="noopener noreferrer">Membres</a>
+                       class="circle-nav__link">Membres</a>
                 </li>
                 <li>
                     <a href="https://communaute.avancersimplement.com/leaderboard"
-                       class="circle-nav__link"
-                       target="_blank"
-                       rel="noopener noreferrer">Leaderboard</a>
+                       class="circle-nav__link">Leaderboard</a>
                 </li>
             </ul>
         </nav>
 
-        {{!-- Hamburger trigger for mobile menu --}}
-        <label class="circle-header__burger" for="mobile-menu-toggle" aria-label="Menu">
-            <span class="burger-line"></span>
-            <span class="burger-line"></span>
-            <span class="burger-line"></span>
-        </label>
+        {{!-- Right section - Burger for mobile --}}
+        <div class="circle-header__right">
+            <label class="circle-header__burger" for="mobile-menu-toggle" aria-label="Menu">
+                <span class="burger-line"></span>
+                <span class="burger-line"></span>
+                <span class="burger-line"></span>
+            </label>
+        </div>
     </div>
 </header>
