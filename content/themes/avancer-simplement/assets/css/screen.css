@@ -3197,7 +3197,7 @@ html.dark-mode .toggle-icon--dark {
 /* Header container */
 .circle-header {
     height: 64px;
-    padding: 8px 36px;
+    padding: 0 2.25rem;
     background: var(--color-header-bg);
     border-bottom: 1px solid var(--color-border);
     position: fixed;
@@ -3207,51 +3207,74 @@ html.dark-mode .toggle-icon--dark {
     z-index: 1000;
 }
 
-/* Inner wrapper - 3 column grid for centered nav */
+/* Inner wrapper - relative for absolute nav centering */
 .circle-header__inner {
+    position: relative;
     display: flex;
     align-items: center;
     justify-content: space-between;
     width: 100%;
     height: 100%;
-    max-width: 100%;
-    margin: 0 auto;
-    gap: 16px;
 }
 
-/* Logo - left aligned */
-.circle-header__logo {
+/* Left section - Logo + dropdown toggle */
+.circle-header__left {
     display: flex;
     align-items: center;
+    gap: 8px;
     flex-shrink: 0;
 }
 
+.circle-header__logo {
+    display: flex;
+    align-items: center;
+}
+
 .circle-header__logo img {
-    height: 36px;
-    width: 360px;
+    height: 40px;
+    max-width: 230px;
     object-fit: contain;
     object-position: left;
 }
 
-/* Right spacer for grid balance */
+/* Menu toggle (chevron next to logo) */
+.circle-header__menu-toggle {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    color: var(--color-header-text);
+    opacity: 0.7;
+    cursor: pointer;
+    transition: opacity 0.15s ease;
+}
+
+.circle-header__menu-toggle:hover {
+    opacity: 1;
+}
+
+/* Right section - Actions */
 .circle-header__right {
     display: flex;
     align-items: center;
-    justify-self: end;
     gap: 8px;
+    flex-shrink: 0;
 }
 
-/* Navigation wrapper - centered in grid */
+/* Navigation - Centered with absolute positioning */
 .circle-header__nav {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
     display: flex;
-    justify-content: center;
 }
 
 /* Navigation list */
 .circle-nav {
     display: flex;
     align-items: center;
-    gap: 8px;
+    gap: 0.5rem;
     list-style: none;
     margin: 0;
     padding: 0;
@@ -3267,7 +3290,7 @@ html.dark-mode .toggle-icon--dark {
 .circle-nav__link {
     display: flex;
     align-items: center;
-    padding: 8px 16px;
+    padding: 0.5rem 1rem;
     font-family: var(--font-primary);
     font-size: 14px;
     font-weight: 500;
@@ -3275,87 +3298,31 @@ html.dark-mode .toggle-icon--dark {
     color: var(--color-header-text);
     text-decoration: none;
     border-radius: 9999px;
-    border: 1px solid transparent;
-    transition: background-color 0.15s ease;
+    transition: background-color 0.15s ease, color 0.15s ease;
     white-space: nowrap;
 }
 
 .circle-nav__link:hover,
 .circle-nav__link:focus {
-    background: var(--color-header-active-bg);
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
 }
 
 /* Active state (pill) */
 .circle-nav__item--active .circle-nav__link {
-    background: rgb(66, 70, 77);
-    border: 1px solid transparent;
-    color: var(--color-header-active-text);
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
 }
 
-/* More dropdown */
-.circle-nav__more {
-    position: relative;
-    display: none;
-}
+/* RESPONSIVE - Mobile (< 768px) */
+@media (max-width: 768px) {
+    .circle-header__nav {
+        display: none;
+    }
 
-.circle-nav__more.is-visible {
-    display: flex;
-}
-
-.circle-nav__more-btn {
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    background: none;
-    cursor: pointer;
-}
-
-.circle-nav__more-btn svg {
-    transition: transform 0.2s ease;
-}
-
-.circle-nav__more-btn[aria-expanded="true"] svg {
-    transform: rotate(180deg);
-}
-
-.circle-nav__dropdown {
-    position: absolute;
-    top: 100%;
-    right: 0;
-    margin-top: 8px;
-    padding: 8px;
-    background: var(--color-header-bg);
-    border: 1px solid var(--color-border);
-    border-radius: 12px;
-    list-style: none;
-    min-width: 180px;
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
-    opacity: 0;
-    visibility: hidden;
-    transform: translateY(-10px);
-    transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s ease;
-}
-
-.circle-nav__more-btn[aria-expanded="true"] + .circle-nav__dropdown {
-    opacity: 1;
-    visibility: visible;
-    transform: translateY(0);
-}
-
-.circle-nav__dropdown li {
-    margin: 0;
-}
-
-.circle-nav__dropdown .circle-nav__link {
-    display: block;
-    width: 100%;
-    padding: 10px 14px;
-    border-radius: 8px;
-}
-
-/* Hidden nav items (moved to dropdown) */
-[data-nav-item].is-hidden {
-    display: none !important;
+    .circle-header__menu-toggle {
+        display: flex;
+    }
 }
 
 /* Search bar */
@@ -3922,23 +3889,6 @@ html.dark-mode .toggle-icon--dark {
     transform: translateY(-8px) rotate(-45deg);
 }
 
-/* Show hamburger only on very small screens (phones) */
-@media (max-width: 480px) {
-    .circle-header__nav {
-        display: none;
-    }
-
-    .circle-header__burger {
-        display: flex;
-    }
-
-    .circle-search {
-        padding: 8px 10px;
-        width: 40px;
-    }
-}
-
-
 /* ============================================
    17. Circle Layout Grid
    ============================================ */
@@ -3987,21 +3937,5 @@ html.dark-mode .toggle-icon--dark {
 
     .site-footer {
         margin-left: 0;
-    }
-}
-
-/* Very small screens (phones) - show hamburger, hide nav */
-@media (max-width: 480px) {
-    .circle-header__burger {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        width: 24px;
-        height: 18px;
-        cursor: pointer;
-    }
-
-    .circle-header__nav {
-        display: none;
     }
 }

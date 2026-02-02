@@ -1,62 +1,58 @@
 <header class="circle-header">
     <div class="circle-header__inner">
-        {{!-- Logo Section - Left --}}
-        <a href="{{@site.url}}" class="circle-header__logo">
-            <img src="https://res.cloudinary.com/dxhn08di4/image/upload/v1770034227/logo-plateforme_ibpiqf.png"
-                 alt="{{@site.title}}"
-                 width="200"
-                 height="32">
-        </a>
+        {{!-- Logo Section - Left with dropdown toggle --}}
+        <div class="circle-header__left">
+            <a href="{{@site.url}}" class="circle-header__logo">
+                <img src="https://res.cloudinary.com/dxhn08di4/image/upload/v1770034227/logo-plateforme_ibpiqf.png"
+                     alt="{{@site.title}}"
+                     width="200"
+                     height="32">
+            </a>
+            <label class="circle-header__menu-toggle" for="mobile-menu-toggle" aria-label="Menu">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
+            </label>
+        </div>
 
-        {{!-- Navigation - Center --}}
+        {{!-- Navigation - Center (absolute positioned) --}}
         <nav class="circle-header__nav" aria-label="Navigation principale">
-            <ul class="circle-nav" id="mainNav">
-                <li data-nav-item>
+            <ul class="circle-nav">
+                <li>
                     <a href="https://communaute.avancersimplement.com/feed"
                        class="circle-nav__link">Accueil</a>
                 </li>
-                <li data-nav-item>
+                <li>
                     <a href="https://communaute.avancersimplement.com/nos-applications"
                        class="circle-nav__link">Nos Applications</a>
                 </li>
-                <li data-nav-item>
+                <li>
                     <a href="https://communaute.avancersimplement.com/courses"
                        class="circle-nav__link">Cours</a>
                 </li>
-                <li data-nav-item class="circle-nav__item--active">
+                <li class="circle-nav__item--active">
                     <a href="{{@site.url}}"
                        class="circle-nav__link"
                        aria-current="page">Blog</a>
                 </li>
-                <li data-nav-item>
+                <li>
                     <a href="https://communaute.avancersimplement.com/events"
                        class="circle-nav__link">Evenements</a>
                 </li>
-                <li data-nav-item>
+                <li>
                     <a href="https://communaute.avancersimplement.com/members"
                        class="circle-nav__link">Membres</a>
                 </li>
-                <li data-nav-item>
+                <li>
                     <a href="https://communaute.avancersimplement.com/leaderboard"
                        class="circle-nav__link">Leaderboard</a>
-                </li>
-                {{!-- More dropdown for overflow items --}}
-                <li class="circle-nav__more" id="navMore">
-                    <button class="circle-nav__link circle-nav__more-btn" aria-expanded="false" aria-haspopup="true">
-                        Plus
-                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <polyline points="6 9 12 15 18 9"></polyline>
-                        </svg>
-                    </button>
-                    <ul class="circle-nav__dropdown" id="navDropdown">
-                    </ul>
                 </li>
             </ul>
         </nav>
 
-        {{!-- Right section - Search + Burger for mobile --}}
+        {{!-- Right section - Actions --}}
         <div class="circle-header__right">
-            {{!-- Search bar --}}
+            {{!-- Search button --}}
             <button class="circle-search" data-custom-search aria-label="Rechercher" onclick="document.getElementById('customSearchOverlay').classList.add('is-open'); return false;">
                 <svg class="circle-search__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                     <circle cx="11" cy="11" r="8"></circle>
@@ -64,12 +60,6 @@
                 </svg>
                 <span class="circle-search__text">Rechercher</span>
             </button>
-
-            <label class="circle-header__burger" for="mobile-menu-toggle" aria-label="Menu">
-                <span class="burger-line"></span>
-                <span class="burger-line"></span>
-                <span class="burger-line"></span>
-            </label>
         </div>
     </div>
 </header>
