@@ -3878,14 +3878,9 @@ html.dark-mode .toggle-icon--dark {
     grid-area: header;
 }
 
-/* Sidebar positioning (align-self: start critical for sticky to work) */
+/* Sidebar positioning */
 .site-layout .circle-sidebar {
     grid-area: sidebar;
-    position: sticky;
-    top: 64px;
-    height: calc(100vh - 64px);
-    overflow-y: auto;
-    align-self: start;
 }
 
 /* Main content area */
