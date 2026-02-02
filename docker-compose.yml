@@ -1,0 +1,54 @@
+# Ghost 6.x + MySQL 8 Docker Compose Stack
+# Source: Adapted from https://github.com/TryGhost/ghost-docker/blob/main/compose.yml
+# Deployment: Portainer auto-pull from GitHub
+
+services:
+  ghost:
+    image: ghost:6-alpine
+    container_name: ghost-avancer
+    restart: unless-stopped
+    depends_on:
+      mysql:
+        condition: service_healthy
+    environment:
+      url: http://localhost:2368
+      database__client: mysql
+      database__connection__host: mysql
+      database__connection__user: ghost
+      database__connection__password: ${GHOST_DB_PASSWORD}
+      database__connection__database: ghost
+      NODE_ENV: production
+    volumes:
+      - ghost_content:/var/lib/ghost/content
+    ports:
+      - "2368:2368"
+    networks:
+      - ghost-network
+
+  mysql:
+    image: mysql:8.0
+    container_name: ghost-mysql
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_DATABASE: ghost
+      MYSQL_USER: ghost
+      MYSQL_PASSWORD: ${GHOST_DB_PASSWORD}
+    volumes:
+      - mysql_data:/var/lib/mysql
+    networks:
+      - ghost-network
+    healthcheck:
+      test: ["CMD", "mysql", "-ughost", "-p${GHOST_DB_PASSWORD}", "-e", "SELECT 1"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+      start_period: 30s
+
+volumes:
+  ghost_content:
+  mysql_data:
+
+networks:
+  ghost-network:
+    driver: bridge

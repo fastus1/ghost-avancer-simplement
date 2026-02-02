@@ -1,0 +1,27 @@
+# Environment secrets
+.env
+
+# Keep template tracked
+!.env.example
+
+# Ghost content (managed by Docker volumes, not git)
+content/data/
+content/images/
+content/logs/
+
+# Node modules (for theme development)
+node_modules/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Backup files
+*.sql
+*.bak
