@@ -1,0 +1,51 @@
+{{!-- Hidden checkbox for CSS-only menu toggle (fallback) --}}
+<input type="checkbox" id="mobile-menu-toggle" class="mobile-menu__checkbox" aria-hidden="true">
+
+{{!-- Mobile menu overlay --}}
+<div class="mobile-menu" role="navigation" aria-label="Menu mobile">
+    <nav class="mobile-menu__nav">
+        <ul>
+            <li>
+                <a href="https://communaute.avancersimplement.com/feed"
+                   class="mobile-menu__link"
+                   target="_blank"
+                   rel="noopener noreferrer">Accueil</a>
+            </li>
+            <li>
+                <a href="https://communaute.avancersimplement.com/nos-applications"
+                   class="mobile-menu__link"
+                   target="_blank"
+                   rel="noopener noreferrer">Nos Applications</a>
+            </li>
+            <li>
+                <a href="https://communaute.avancersimplement.com/courses"
+                   class="mobile-menu__link"
+                   target="_blank"
+                   rel="noopener noreferrer">Cours</a>
+            </li>
+            <li>
+                <a href="{{@site.url}}"
+                   class="mobile-menu__link"
+                   aria-current="page">Blog</a>
+            </li>
+            <li>
+                <a href="https://communaute.avancersimplement.com/events"
+                   class="mobile-menu__link"
+                   target="_blank"
+                   rel="noopener noreferrer">Evenements</a>
+            </li>
+            <li>
+                <a href="https://communaute.avancersimplement.com/members"
+                   class="mobile-menu__link"
+                   target="_blank"
+                   rel="noopener noreferrer">Membres</a>
+            </li>
+            <li>
+                <a href="https://communaute.avancersimplement.com/leaderboard"
+                   class="mobile-menu__link"
+                   target="_blank"
+                   rel="noopener noreferrer">Leaderboard</a>
+            </li>
+        </ul>
+    </nav>
+</div>
