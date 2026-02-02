@@ -39,7 +39,7 @@ services:
     networks:
       - ghost-network
     healthcheck:
-      test: ["CMD", "mysql", "-ughost", "-p${GHOST_DB_PASSWORD}", "-e", "SELECT 1"]
+      test: ["CMD-SHELL", "mysql -ughost -p\"$$MYSQL_PASSWORD\" -e 'SELECT 1'"]
       interval: 10s
       timeout: 5s
       retries: 10
