@@ -1,6 +1,15 @@
 <!DOCTYPE html>
 <html lang="{{@site.locale}}"{{#match @custom.color_scheme "Dark"}} class="dark-mode"{{else match @custom.color_scheme "Auto"}} class="auto-color"{{/match}}>
 <head>
+    {{!-- FOWT Prevention: Apply theme before any content renders --}}
+    <script>
+        (function() {
+            var theme = localStorage.getItem('theme-preference');
+            if (theme === 'dark' || (!theme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+                document.documentElement.classList.add('dark-mode');
+            }
+        })();
+    </script>
 
     {{!-- Basic meta - advanced meta is output with {ghost_head} below --}}
     <title>{{meta_title}}</title>
@@ -49,6 +58,7 @@
             </nav>
 
             <div class="gh-head-actions">
+                {{> "theme-toggle"}}
                 {{#unless @site.members_enabled}}
                     {{^match @custom.navigation_layout "Stacked"}}
                         <button class="gh-search gh-icon-btn" aria-label="Search this site" data-ghost-search>{{> "icons/search"}}</button>
@@ -112,6 +122,9 @@ $(document).ready(function () {
     $(".gh-content").fitVids();
 });
 </script>
+
+{{!-- Theme toggle script for dark/light mode --}}
+<script src="{{asset "js/theme-toggle.js"}}"></script>
 
 {{!-- Ghost outputs required functional scripts with this tag - it should always be the last thing before the closing body tag --}}
 {{ghost_foot}}
