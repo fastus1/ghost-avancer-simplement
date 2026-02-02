@@ -20,6 +20,7 @@ services:
       NODE_ENV: production
     volumes:
       - ghost_content:/var/lib/ghost/content
+      - ./content/themes:/var/lib/ghost/content/themes
     ports:
       - "2368:2368"
     networks:
