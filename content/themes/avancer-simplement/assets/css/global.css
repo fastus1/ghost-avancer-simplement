@@ -1,3 +1,83 @@
+/* ============================================
+   Avancer Simplement Brand Variables
+   ============================================ */
+
+:root {
+    /* Typography - Inter font */
+    --font-primary: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    --font-serif: Georgia, Times, serif;
+    --font-mono: Menlo, Courier, monospace;
+
+    /* Typography sizes (from branding doc) */
+    --text-xs: 12px;
+    --text-sm: 14px;
+    --text-base: 16px;
+    --text-lg: 18px;
+    --text-xl: 20px;
+    --text-2xl: 24px;
+    --text-3xl: 28px;
+    --text-4xl: 32px;
+    --text-5xl: 40px;
+
+    /* Font weights */
+    --font-normal: 400;
+    --font-medium: 500;
+    --font-semibold: 600;
+    --font-bold: 700;
+
+    /* Line heights */
+    --leading-tight: 1.2;
+    --leading-snug: 1.3;
+    --leading-normal: 1.5;
+    --leading-relaxed: 1.6;
+
+    /* Light mode colors (default) - from branding doc */
+    --color-brand: #074491;
+    --color-brand-text: #FFFFFF;
+    --color-link: #2563EB;
+    --color-bg: #FFFFFF;
+    --color-text: #000000;
+    --color-text-secondary: #545861;
+    --color-border: #e1e1e1;
+    --color-header-bg: #FFFFFF;
+    --color-header-text: #000000;
+    --color-header-active-text: #545861;
+    --color-header-active-bg: #F0F3F5;
+    --color-sidebar-bg: #FFFFFF;
+    --color-sidebar-text: #545861;
+    --color-sidebar-active: #074491;
+    --color-sidebar-active-text: #FFFFFF;
+    --color-sidebar-hover: #F0F3F5;
+
+    /* Accent colors */
+    --color-orange: #e05a03;
+    --color-green: #009a2a;
+    --color-yellow: #ffb200;
+    --color-red: #db0e00;
+    --color-purple: #641892;
+    --color-magenta: #a82360;
+}
+
+/* Dark mode overrides - triggered by html.dark-mode class */
+html.dark-mode {
+    --color-brand: #3085F5;
+    --color-brand-text: #202226;
+    --color-link: #539DFF;
+    --color-bg: #2B2E33;
+    --color-text: #E4E7EB;
+    --color-text-secondary: #E4E7EB;
+    --color-border: #42464D;
+    --color-header-bg: #2B2E33;
+    --color-header-text: #E4E7EB;
+    --color-header-active-text: #E4E7EB;
+    --color-header-active-bg: #42464D;
+    --color-sidebar-bg: #2B2E33;
+    --color-sidebar-text: #E4E7EB;
+    --color-sidebar-active: #42464D;
+    --color-sidebar-active-text: #FFFFFF;
+    --color-sidebar-hover: #42464D;
+}
+
 /* Reset
 /* ---------------------------------------------------------- */
 
