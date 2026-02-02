@@ -1,65 +1,40 @@
-<header class="circle-header">
-    <div class="circle-header__inner">
-        {{!-- Logo Section - Left with dropdown toggle --}}
-        <div class="circle-header__left">
-            <a href="{{@site.url}}" class="circle-header__logo">
-                <img src="https://res.cloudinary.com/dxhn08di4/image/upload/v1770034227/logo-plateforme_ibpiqf.png"
-                     alt="{{@site.title}}"
-                     width="200"
-                     height="32">
-            </a>
-            <label class="circle-header__menu-toggle" for="mobile-menu-toggle" aria-label="Menu">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <polyline points="6 9 12 15 18 9"></polyline>
-                </svg>
-            </label>
-        </div>
-
-        {{!-- Navigation - Center (absolute positioned) --}}
-        <nav class="circle-header__nav" aria-label="Navigation principale">
-            <ul class="circle-nav">
-                <li>
-                    <a href="https://communaute.avancersimplement.com/feed"
-                       class="circle-nav__link">Accueil</a>
-                </li>
-                <li>
-                    <a href="https://communaute.avancersimplement.com/nos-applications"
-                       class="circle-nav__link">Nos Applications</a>
-                </li>
-                <li>
-                    <a href="https://communaute.avancersimplement.com/courses"
-                       class="circle-nav__link">Cours</a>
-                </li>
-                <li class="circle-nav__item--active">
-                    <a href="{{@site.url}}"
-                       class="circle-nav__link"
-                       aria-current="page">Blog</a>
-                </li>
-                <li>
-                    <a href="https://communaute.avancersimplement.com/events"
-                       class="circle-nav__link">Evenements</a>
-                </li>
-                <li>
-                    <a href="https://communaute.avancersimplement.com/members"
-                       class="circle-nav__link">Membres</a>
-                </li>
-                <li>
-                    <a href="https://communaute.avancersimplement.com/leaderboard"
-                       class="circle-nav__link">Leaderboard</a>
-                </li>
-            </ul>
-        </nav>
-
-        {{!-- Right section - Actions --}}
-        <div class="circle-header__right">
-            {{!-- Search button --}}
-            <button class="circle-search" data-custom-search aria-label="Rechercher" onclick="document.getElementById('customSearchOverlay').classList.add('is-open'); return false;">
-                <svg class="circle-search__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <circle cx="11" cy="11" r="8"></circle>
-                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-                </svg>
-                <span class="circle-search__text">Rechercher</span>
-            </button>
-        </div>
+<header class="site-header">
+    {{!-- Logo --}}
+    <div class="header-logo">
+        <a href="{{@site.url}}">
+            <img src="https://res.cloudinary.com/dxhn08di4/image/upload/v1770034227/logo-plateforme_ibpiqf.png"
+                 alt="{{@site.title}}">
+        </a>
     </div>
+
+    {{!-- Navigation principale --}}
+    <nav class="header-nav" id="priority-nav">
+        <ul class="nav-list">
+            <li><a href="https://communaute.avancersimplement.com/feed">Accueil</a></li>
+            <li><a href="https://communaute.avancersimplement.com/nos-applications">Nos Applications</a></li>
+            <li><a href="https://communaute.avancersimplement.com/courses">Cours</a></li>
+            <li class="is-active"><a href="{{@site.url}}">Blog</a></li>
+            <li><a href="https://communaute.avancersimplement.com/events">Evenements</a></li>
+            <li><a href="https://communaute.avancersimplement.com/members">Membres</a></li>
+            <li><a href="https://communaute.avancersimplement.com/leaderboard">Leaderboard</a></li>
+        </ul>
+    </nav>
+
+    {{!-- Actions (recherche) --}}
+    <div class="header-actions">
+        <button class="btn-search" onclick="document.getElementById('customSearchOverlay').classList.add('is-open'); return false;" aria-label="Rechercher">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="11" cy="11" r="8"></circle>
+                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+            </svg>
+            <span>Rechercher</span>
+        </button>
+    </div>
+
+    {{!-- Hamburger (mobile) --}}
+    <label class="hamburger" for="mobile-menu-toggle" aria-label="Menu">
+        <span></span>
+        <span></span>
+        <span></span>
+    </label>
 </header>

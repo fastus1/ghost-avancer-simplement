@@ -3191,87 +3191,49 @@ html.dark-mode .toggle-icon--dark {
 
 
 /* ============================================
-   14. Circle Header
+   14. Site Header - Priority Navigation
    ============================================ */
 
 /* Header container */
-.circle-header {
-    height: 64px;
-    padding: 0 2.25rem;
-    background: var(--color-header-bg);
-    border-bottom: 1px solid var(--color-border);
+.site-header {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
     z-index: 1000;
+    height: 64px;
+    padding: 0 2rem;
+    background: var(--color-header-bg);
+    border-bottom: 1px solid var(--color-border);
 }
 
-/* Inner wrapper - relative for absolute nav centering */
-.circle-header__inner {
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 100%;
-    height: 100%;
-}
-
-/* Left section - Logo + dropdown toggle */
-.circle-header__left {
-    display: flex;
-    align-items: center;
-    gap: 8px;
+/* Logo */
+.header-logo {
     flex-shrink: 0;
 }
 
-.circle-header__logo {
+.header-logo a {
     display: flex;
     align-items: center;
 }
 
-.circle-header__logo img {
+.header-logo img {
     height: 36px;
     width: 360px;
     object-fit: contain;
     object-position: left;
 }
 
-/* Menu toggle (chevron next to logo) */
-.circle-header__menu-toggle {
-    display: none;
-    align-items: center;
+/* Navigation */
+.header-nav {
+    display: flex;
     justify-content: center;
-    width: 28px;
-    height: 28px;
-    color: var(--color-header-text);
-    opacity: 0.7;
-    cursor: pointer;
-    transition: opacity 0.15s ease;
 }
 
-.circle-header__menu-toggle:hover {
-    opacity: 1;
-}
-
-/* Right section - Actions */
-.circle-header__right {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    flex-shrink: 0;
-}
-
-/* Navigation - Centered with absolute positioning */
-.circle-header__nav {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    display: flex;
-}
-
-/* Navigation list */
-.circle-nav {
+.nav-list {
     display: flex;
     align-items: center;
     gap: 0.5rem;
@@ -3280,92 +3242,201 @@ html.dark-mode .toggle-icon--dark {
     padding: 0;
 }
 
-.circle-nav li {
-    display: flex;
-    align-items: center;
+.nav-list > li {
     margin: 0;
     padding: 0;
 }
 
-.circle-nav__link {
+/* Navigation links */
+.nav-list > li > a,
+.nav-list > li > button {
     display: flex;
     align-items: center;
     padding: 0.5rem 1rem;
-    font-family: var(--font-primary);
-    font-size: 14px;
-    font-weight: 500;
-    line-height: 21px;
+    border-radius: 9999px;
     color: var(--color-header-text);
     text-decoration: none;
+    font-size: 0.875rem;
+    font-weight: 500;
+    white-space: nowrap;
+    transition: all 0.15s ease;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.nav-list > li > a:hover,
+.nav-list > li > button:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+}
+
+.nav-list > li.is-active > a {
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+}
+
+/* "Plus" dropdown button */
+.nav-more {
+    position: relative;
+    display: none;
+}
+
+.nav-more-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    padding: 0.5rem 1rem;
     border-radius: 9999px;
-    transition: background-color 0.15s ease, color 0.15s ease;
+    color: var(--color-header-text);
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 0.875rem;
+    font-weight: 500;
+}
+
+.nav-more-btn:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+}
+
+.nav-more-btn svg {
+    width: 12px;
+    height: 12px;
+    transition: transform 0.2s;
+}
+
+.nav-more.open .nav-more-btn svg {
+    transform: rotate(180deg);
+}
+
+/* Dropdown menu */
+.nav-more-dropdown {
+    position: absolute;
+    top: calc(100% + 0.5rem);
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--color-header-bg);
+    border: 1px solid var(--color-border);
+    border-radius: 0.5rem;
+    padding: 0.5rem 0;
+    min-width: 160px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.2s ease;
+    list-style: none;
+    margin: 0;
+}
+
+.nav-more.open .nav-more-dropdown {
+    opacity: 1;
+    visibility: visible;
+}
+
+.nav-more-dropdown li {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-more-dropdown a {
+    display: block;
+    padding: 0.625rem 1rem;
+    color: var(--color-header-text);
+    text-decoration: none;
+    font-size: 0.875rem;
+    transition: all 0.15s;
+}
+
+.nav-more-dropdown a:hover {
+    background: rgba(255, 255, 255, 0.05);
+    color: #fff;
+}
+
+/* Header actions (search) */
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex-shrink: 0;
+}
+
+.btn-search {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    height: 36px;
+    padding: 0.5rem 1rem 0.5rem 0.75rem;
+    background: transparent;
+    border: 1px solid var(--color-border);
+    border-radius: 9999px;
+    color: var(--color-header-text);
+    font-size: 0.875rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.15s ease;
     white-space: nowrap;
 }
 
-.circle-nav__link:hover,
-.circle-nav__link:focus {
+.btn-search:hover {
     background: rgba(255, 255, 255, 0.1);
-    color: #fff;
+    border-color: var(--color-header-text);
 }
 
-/* Active state (pill) */
-.circle-nav__item--active .circle-nav__link {
-    background: rgba(255, 255, 255, 0.1);
-    color: #fff;
+.btn-search svg {
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
 }
 
-/* RESPONSIVE - Mobile (< 768px) */
-@media (max-width: 768px) {
-    .circle-header__nav {
+/* Hamburger button */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    width: 40px;
+    height: 40px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.hamburger span {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background: var(--color-header-text);
+    transition: all 0.3s;
+}
+
+/* Mobile breakpoint (< 992px) */
+@media (max-width: 992px) {
+    .site-header {
+        grid-template-columns: auto 1fr auto;
+    }
+
+    .header-nav {
         display: none;
     }
 
-    .circle-header__menu-toggle {
+    .hamburger {
         display: flex;
     }
 }
 
-/* Search bar */
-.circle-search {
-    position: relative;
-    display: flex;
-    align-items: center;
-    height: 36px;
-    padding: 8px 10px 8px 40px;
-    background: transparent;
-    border: 1px solid rgb(66, 71, 79);
-    border-radius: 9999px;
-    color: var(--color-header-text);
-    font-family: Inter, var(--font-primary);
-    font-size: 14px;
-    font-weight: 500;
-    line-height: 21px;
-    cursor: pointer;
-    transition: background-color 0.15s ease, border-color 0.15s ease;
-    white-space: nowrap;
-}
-
-.circle-search:hover {
-    background: var(--color-header-active-bg);
-    border-color: var(--color-header-text);
-}
-
-.circle-search__icon {
-    position: absolute;
-    left: 12px;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 20px;
-    height: 20px;
-}
-
-.circle-search__text {
-}
-
-/* Hide search on mobile - goes into hamburger menu */
-@media (max-width: 768px) {
-    .circle-search {
+/* Hide search text on smaller screens but keep icon */
+@media (max-width: 1100px) {
+    .btn-search span {
         display: none;
+    }
+
+    .btn-search {
+        padding: 0.5rem;
+        width: 40px;
+        justify-content: center;
     }
 }
 
@@ -3591,27 +3662,6 @@ html.dark-mode .toggle-icon--dark {
     background: #3a3d42;
     padding: 2px 8px;
     border-radius: 4px;
-}
-
-/* Hamburger (hidden on desktop, shown in Plan 02 responsive) */
-.circle-header__burger {
-    display: none;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 40px;
-    height: 40px;
-    cursor: pointer;
-}
-
-.burger-line {
-    display: block;
-    height: 2px;
-    width: 24px;
-    background: var(--color-header-text);
-    border-radius: 1px;
-    margin: 3px 0;
-    transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
 
@@ -3859,36 +3909,31 @@ html.dark-mode .toggle-icon--dark {
 }
 
 /* Hamburger animation when checked */
-.mobile-menu__checkbox:checked ~ .site-layout .circle-header .burger-line:nth-child(1) {
-    transform: translateY(8px) rotate(45deg);
+.mobile-menu__checkbox:checked ~ .site-layout .site-header .hamburger span:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
 }
 
-.mobile-menu__checkbox:checked ~ .site-layout .circle-header .burger-line:nth-child(2) {
+.mobile-menu__checkbox:checked ~ .site-layout .site-header .hamburger span:nth-child(2) {
     opacity: 0;
 }
 
-.mobile-menu__checkbox:checked ~ .site-layout .circle-header .burger-line:nth-child(3) {
-    transform: translateY(-8px) rotate(-45deg);
+.mobile-menu__checkbox:checked ~ .site-layout .site-header .hamburger span:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
 }
 
 /* ============================================
-   17. Circle Layout Grid
+   17. Site Layout Grid
    ============================================ */
 
 /* Main layout container */
 .site-layout {
     display: grid;
     grid-template-columns: 260px 1fr;
-    grid-template-rows: 64px 1fr;
+    grid-template-rows: 1fr;
     grid-template-areas:
-        "header header"
         "sidebar main";
     min-height: 100vh;
-}
-
-/* Header positioning */
-.site-layout .circle-header {
-    grid-area: header;
+    padding-top: 64px;
 }
 
 /* Sidebar positioning */
@@ -3900,17 +3945,15 @@ html.dark-mode .toggle-icon--dark {
 .site-layout .site-main {
     grid-area: main;
     min-height: calc(100vh - 64px);
-    padding: 64px max(4vmin, 20px) 0;
+    padding: 0 max(4vmin, 20px);
 }
 
-/* Responsive breakpoint (tablet/mobile < 768px) - hide sidebar */
-@media (max-width: 767px) {
+/* Responsive breakpoint (tablet/mobile < 992px) - hide sidebar */
+@media (max-width: 992px) {
     .site-layout {
         grid-template-columns: 1fr;
-        grid-template-rows: 64px 1fr;
-        grid-template-areas:
-            "header"
-            "main";
+        grid-template-rows: 1fr;
+        grid-template-areas: "main";
     }
 
     .site-layout .circle-sidebar {
