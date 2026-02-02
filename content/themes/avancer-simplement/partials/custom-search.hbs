@@ -1,0 +1,47 @@
+{{!-- Custom Search Modal - Circle Style --}}
+<div class="custom-search-overlay" id="customSearchOverlay">
+    <div class="custom-search-modal">
+        {{!-- Search Input --}}
+        <div class="custom-search-header">
+            <svg class="custom-search-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="11" cy="11" r="8"></circle>
+                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+            </svg>
+            <input
+                type="text"
+                class="custom-search-input"
+                id="customSearchInput"
+                placeholder="Rechercher sur le blog..."
+                autocomplete="off"
+                autofocus
+            >
+            <button class="custom-search-close" id="customSearchClose" aria-label="Fermer">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+            </button>
+        </div>
+
+        {{!-- Search Results --}}
+        <div class="custom-search-results" id="customSearchResults">
+            {{!-- Empty state --}}
+            <div class="custom-search-empty" id="customSearchEmpty">
+                <svg class="custom-search-empty-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                </svg>
+                <h3>Rechercher sur le blog</h3>
+                <p>Recherchez des mots-clés dans les articles, tags et auteurs</p>
+            </div>
+
+            {{!-- Results list (populated by JS) --}}
+            <div class="custom-search-list" id="customSearchList"></div>
+
+            {{!-- No results --}}
+            <div class="custom-search-no-results" id="customSearchNoResults" style="display: none;">
+                <p>Aucun résultat trouvé</p>
+            </div>
+        </div>
+    </div>
+</div>

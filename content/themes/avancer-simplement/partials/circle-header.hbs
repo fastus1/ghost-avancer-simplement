@@ -43,8 +43,17 @@
             </ul>
         </nav>
 
-        {{!-- Right section - Burger for mobile --}}
+        {{!-- Right section - Search + Burger for mobile --}}
         <div class="circle-header__right">
+            {{!-- Search bar --}}
+            <button class="circle-search" data-custom-search aria-label="Rechercher" onclick="document.getElementById('customSearchOverlay').classList.add('is-open'); return false;">
+                <svg class="circle-search__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                </svg>
+                <span class="circle-search__text">Rechercher sur le blog</span>
+            </button>
+
             <label class="circle-header__burger" for="mobile-menu-toggle" aria-label="Menu">
                 <span class="burger-line"></span>
                 <span class="burger-line"></span>
