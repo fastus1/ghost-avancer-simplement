@@ -3103,3 +3103,94 @@ html.dark-mode .toggle-icon--light {
 html.dark-mode .toggle-icon--dark {
     display: none;
 }
+
+
+/* ============================================
+   14. Circle Header
+   ============================================ */
+
+/* Header container */
+.circle-header {
+    height: 64px;
+    padding: 8px 36px;
+    background: var(--color-header-bg);
+    border-bottom: 1px solid var(--color-border);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+/* Inner wrapper */
+.circle-header__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    height: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+/* Logo */
+.circle-header__logo {
+    display: flex;
+    align-items: center;
+}
+
+.circle-header__logo img {
+    height: 36px;
+    width: auto;
+}
+
+/* Navigation */
+.circle-nav {
+    display: flex;
+    gap: 8px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.circle-nav__link {
+    display: block;
+    padding: 8px 16px;
+    font-family: var(--font-primary);
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--color-header-text);
+    text-decoration: none;
+    border-radius: 9999px;
+    transition: background-color 0.2s ease;
+}
+
+.circle-nav__link:hover,
+.circle-nav__link:focus {
+    background: var(--color-header-active-bg);
+}
+
+/* Active state (pill) */
+.circle-nav__item--active .circle-nav__link {
+    background: var(--color-header-active-bg);
+    border: 1px solid var(--color-border);
+    color: var(--color-header-active-text);
+}
+
+/* Hamburger (hidden on desktop, shown in Plan 02 responsive) */
+.circle-header__burger {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+}
+
+.burger-line {
+    display: block;
+    height: 2px;
+    width: 24px;
+    background: var(--color-header-text);
+    border-radius: 1px;
+    margin: 3px 0;
+}
