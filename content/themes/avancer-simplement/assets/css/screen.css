@@ -3362,28 +3362,10 @@ html.dark-mode .toggle-icon--dark {
 .circle-search__text {
 }
 
-/* Hide search text on smaller screens */
-@media (max-width: 1200px) {
-    .circle-search__text {
+/* Hide search on mobile - goes into hamburger menu */
+@media (max-width: 768px) {
+    .circle-search {
         display: none;
-    }
-
-    .circle-search {
-        padding: 8px 12px 8px 40px;
-        width: 52px;
-    }
-}
-
-/* Search always visible - just show icon on small screens */
-@media (max-width: 900px) {
-    .circle-search {
-        padding: 8px 12px;
-        width: 44px;
-    }
-
-    .circle-search__icon {
-        position: static;
-        transform: none;
     }
 }
 
