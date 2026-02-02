@@ -7,7 +7,6 @@ into the {body} tag of the default.hbs template --}}
 {{#post}}
 {{!-- Everything inside the #post block pulls data from the page --}}
 
-<main id="site-main" class="site-main">
 <article class="article {{post_class}}">
 
     {{#match @page.show_title_and_feature_image}}
@@ -42,6 +41,5 @@ into the {body} tag of the default.hbs template --}}
     </section>
 
 </article>
-</main>
 
 {{/post}}
