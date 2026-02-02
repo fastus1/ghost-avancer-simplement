@@ -6,7 +6,7 @@ Blog Ghost auto-hébergé pour "Avancer Simplement", migrant depuis WordPress. L
 
 ## Core Value
 
-Le blog doit refléter visuellement l'identité de la plateforme Circle.so — mêmes couleurs, même police, même feeling.
+Le blog doit être **visuellement identique** à la plateforme Circle.so — même header, même sidebar, mêmes couleurs, même police. La transition entre communaute.avancersimplement.com et le blog doit être seamless.
 
 ## Requirements
 
@@ -21,7 +21,9 @@ Le blog doit refléter visuellement l'identité de la plateforme Circle.so — m
 - [ ] Police Inter intégrée (comme Circle.so)
 - [ ] Couleurs brand appliquées (light: #074491, dark: #3085F5)
 - [ ] Toggle dark/light mode fonctionnel
-- [ ] Migration des articles WordPress (20-100 articles)
+- [ ] Header identique à Circle.so (64px, logo, navigation)
+- [ ] Sidebar 281px avec navigation articles
+- [ ] Migration des articles WordPress — import manuel prévu
 - [ ] Configuration production pour blog.avancersimplement.com
 
 ### Out of Scope

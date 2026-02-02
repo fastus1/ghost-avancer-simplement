@@ -12,7 +12,7 @@ Ce projet migre le blog WordPress existant vers Ghost auto-heberge, avec un bran
 
 - [x] **Phase 1: Infrastructure Foundation** - Ghost + MySQL + volumes fonctionnels localement
 - [x] **Phase 2: Theme & Branding** - Casper fork avec Inter, couleurs brand, dark/light toggle
-- [ ] **Phase 3: Content Migration** - Articles WordPress migres et nettoyes
+- [ ] **Phase 3: Advanced Layout** - Header Circle.so + Sidebar navigation
 - [ ] **Phase 4: Production Deployment** - Caddy + SSL + GitOps via Portainer
 
 ## Phase Details
@@ -49,16 +49,16 @@ Plans:
 - [x] 02-03-PLAN.md — Toggle button with localStorage persistence
 - [x] 02-04-PLAN.md — Logo/favicon assets and final theme verification
 
-### Phase 3: Content Migration
-**Goal**: Articles WordPress (20-100) importes, nettoyes et fonctionnels dans Ghost
-**Depends on**: Phase 1 (Phase 2 ideal but not blocking)
-**Requirements**: CONT-01, CONT-02, CONT-03, CONT-04
+### Phase 3: Advanced Layout
+**Goal**: Layout identique à Circle.so — header 64px avec navigation, sidebar 281px pour navigation articles
+**Depends on**: Phase 2
+**Requirements**: LAYOUT-01 (Header Circle.so), LAYOUT-02 (Sidebar), LAYOUT-03 (Navigation cohérente)
 **Success Criteria** (what must be TRUE):
-  1. Tous les articles WordPress visibles dans Ghost admin
-  2. Images des articles affichees correctement
-  3. Shortcodes WordPress supprimes ou remplaces
-  4. Categories converties en tags Ghost
-**Plans**: TBD (1-2 plans)
+  1. Header 64px avec logo et liens de navigation Circle.so
+  2. Sidebar 281px visible sur toutes les pages
+  3. Navigation entre articles depuis la sidebar
+  4. Transition visuelle seamless entre Circle.so et le blog
+**Plans**: TBD (2-3 plans)
 
 Plans:
 - [ ] 03-01: TBD
@@ -86,12 +86,12 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4
 |-------|----------------|--------|-----------|
 | 1. Infrastructure Foundation | 1/1 | Complete | 2026-02-02 |
 | 2. Theme & Branding | 4/4 | Complete | 2026-02-02 |
-| 3. Content Migration | 0/? | Not started | - |
+| 3. Advanced Layout | 0/? | Not started | - |
 | 4. Production Deployment | 0/? | Not started | - |
 
 ## Coverage Validation
 
-**22 v1 requirements mapped:**
+**21 v1 requirements mapped:**
 
 | Requirement | Phase | Coverage |
 |-------------|-------|----------|
@@ -109,16 +109,15 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4
 | THEME-03 | 2 | Dark mode CSS |
 | THEME-04 | 2 | Light mode CSS |
 | THEME-05 | 2 | Toggle button header |
-| CONT-01 | 3 | Export WordPress |
-| CONT-02 | 3 | Import dans Ghost |
-| CONT-03 | 3 | Nettoyage post-migration |
-| CONT-04 | 3 | Images migrees |
+| LAYOUT-01 | 3 | Header identique Circle.so (64px, logo, nav) |
+| LAYOUT-02 | 3 | Sidebar 281px navigation articles |
+| LAYOUT-03 | 3 | Transition seamless Circle.so ↔ blog |
 | PROD-01 | 4 | Domaine configure |
 | PROD-02 | 4 | HTTPS Let's Encrypt |
 | PROD-03 | 4 | GitOps Portainer |
 | PROD-04 | 4 | Backup strategy |
 
-**Coverage: 22/22 (100%)**
+**Coverage: 21/21 (100%)**
 
 ---
 *Roadmap created: 2026-02-02*
