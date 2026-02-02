@@ -3227,9 +3227,8 @@ html.dark-mode .toggle-icon--dark {
 }
 
 .circle-header__logo img {
-    height: 32px;
-    width: auto;
-    max-width: 200px;
+    height: 36px;
+    width: 360px;
     object-fit: contain;
     object-position: left;
 }

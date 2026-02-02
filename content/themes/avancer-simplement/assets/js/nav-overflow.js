@@ -1,59 +1,71 @@
 (function() {
-    const nav = document.getElementById('mainNav');
-    const moreItem = document.getElementById('navMore');
-    const dropdown = document.getElementById('navDropdown');
-    const moreBtn = moreItem ? moreItem.querySelector('.circle-nav__more-btn') : null;
+    function initNavOverflow() {
+        const nav = document.getElementById('mainNav');
+        const moreItem = document.getElementById('navMore');
+        const dropdown = document.getElementById('navDropdown');
+        const moreBtn = moreItem ? moreItem.querySelector('.circle-nav__more-btn') : null;
 
-    if (!nav || !moreItem || !dropdown || !moreBtn) return;
+        if (!nav || !moreItem || !dropdown || !moreBtn) return;
 
-    const navItems = Array.from(nav.querySelectorAll('[data-nav-item]'));
-    let hiddenItems = [];
+        const navItems = Array.from(nav.querySelectorAll('[data-nav-item]'));
 
-    function updateNav() {
-        // Reset all items to visible
-        navItems.forEach(item => {
-            item.classList.remove('is-hidden');
-        });
-        dropdown.innerHTML = '';
-        hiddenItems = [];
-        moreItem.classList.remove('is-visible');
+        // Store original widths when all items are visible
+        let itemWidths = [];
 
-        // Get available width
-        const header = document.querySelector('.circle-header__inner');
-        const logo = document.querySelector('.circle-header__logo');
-        const rightSection = document.querySelector('.circle-header__right');
+        function measureItems() {
+            // Temporarily show all items to measure
+            navItems.forEach(item => item.classList.remove('is-hidden'));
+            moreItem.classList.remove('is-visible');
 
-        if (!header || !logo || !rightSection) return;
+            itemWidths = navItems.map(item => item.getBoundingClientRect().width);
+        }
 
-        const headerWidth = header.offsetWidth;
-        const logoWidth = logo.offsetWidth;
-        const rightWidth = rightSection.offsetWidth;
-        const gap = 32; // gaps between sections
-        const moreWidth = 80; // approximate width of "Plus" button
+        function updateNav() {
+            const headerNav = document.querySelector('.circle-header__nav');
+            if (!headerNav) return;
 
-        const availableWidth = headerWidth - logoWidth - rightWidth - gap - moreWidth;
+            // Reset all items to visible first
+            navItems.forEach(item => item.classList.remove('is-hidden'));
+            moreItem.classList.remove('is-visible');
+            dropdown.innerHTML = '';
 
-        // Calculate which items fit
-        let totalWidth = 0;
-        let itemsToHide = [];
+            // Get the nav container width
+            const navRect = headerNav.getBoundingClientRect();
+            const availableWidth = navRect.width;
 
-        navItems.forEach((item, index) => {
-            const itemWidth = item.offsetWidth + 8; // 8px gap
-            totalWidth += itemWidth;
+            // Calculate total width of all nav items
+            let totalWidth = 0;
+            navItems.forEach((item, i) => {
+                totalWidth += item.getBoundingClientRect().width + 8; // 8px gap
+            });
 
-            if (totalWidth > availableWidth) {
-                itemsToHide.push(item);
+            // If everything fits, we're done
+            if (totalWidth <= availableWidth) {
+                return;
             }
-        });
 
-        // Hide overflow items and add to dropdown
-        if (itemsToHide.length > 0) {
+            // Items don't fit - show "Plus" and calculate what fits
             moreItem.classList.add('is-visible');
+            const moreWidth = moreItem.getBoundingClientRect().width + 16; // plus some margin
+            const spaceForItems = availableWidth - moreWidth;
 
+            let usedWidth = 0;
+            let itemsToHide = [];
+
+            navItems.forEach((item, index) => {
+                const itemWidth = item.getBoundingClientRect().width + 8;
+
+                if (usedWidth + itemWidth <= spaceForItems) {
+                    usedWidth += itemWidth;
+                } else {
+                    itemsToHide.push(item);
+                }
+            });
+
+            // Hide overflow items and add to dropdown
             itemsToHide.forEach(item => {
                 item.classList.add('is-hidden');
 
-                // Clone the link to dropdown
                 const link = item.querySelector('a');
                 if (link) {
                     const li = document.createElement('li');
@@ -63,37 +75,50 @@
                 }
             });
 
-            hiddenItems = itemsToHide;
+            // If no items to hide, hide the "Plus" button
+            if (itemsToHide.length === 0) {
+                moreItem.classList.remove('is-visible');
+            }
         }
+
+        // Toggle dropdown
+        moreBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            const isExpanded = this.getAttribute('aria-expanded') === 'true';
+            this.setAttribute('aria-expanded', !isExpanded);
+        });
+
+        // Close dropdown when clicking outside
+        document.addEventListener('click', function(e) {
+            if (!moreItem.contains(e.target)) {
+                moreBtn.setAttribute('aria-expanded', 'false');
+            }
+        });
+
+        // Close dropdown on escape
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                moreBtn.setAttribute('aria-expanded', 'false');
+            }
+        });
+
+        // Run on load and resize
+        updateNav();
+
+        let resizeTimeout;
+        window.addEventListener('resize', function() {
+            clearTimeout(resizeTimeout);
+            resizeTimeout = setTimeout(updateNav, 50);
+        });
     }
 
-    // Toggle dropdown
-    moreBtn.addEventListener('click', function(e) {
-        e.preventDefault();
-        const isExpanded = this.getAttribute('aria-expanded') === 'true';
-        this.setAttribute('aria-expanded', !isExpanded);
-    });
-
-    // Close dropdown when clicking outside
-    document.addEventListener('click', function(e) {
-        if (!moreItem.contains(e.target)) {
-            moreBtn.setAttribute('aria-expanded', 'false');
-        }
-    });
-
-    // Close dropdown on escape
-    document.addEventListener('keydown', function(e) {
-        if (e.key === 'Escape') {
-            moreBtn.setAttribute('aria-expanded', 'false');
-        }
-    });
-
-    // Run on load and resize
-    updateNav();
-
-    let resizeTimeout;
-    window.addEventListener('resize', function() {
-        clearTimeout(resizeTimeout);
-        resizeTimeout = setTimeout(updateNav, 100);
-    });
+    // Wait for DOM and fonts to be ready
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', function() {
+            setTimeout(initNavOverflow, 100);
+        });
+    } else {
+        setTimeout(initNavOverflow, 100);
+    }
 })();
