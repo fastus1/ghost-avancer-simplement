@@ -1,0 +1,6 @@
+{{!-- Site logo - used in header --}}
+{{#if @site.logo}}
+    <img class="gh-head-logo" src="{{@site.logo}}" alt="{{@site.title}}">
+{{else}}
+    <span class="gh-head-logo-text">{{@site.title}}</span>
+{{/if}}
